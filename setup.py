@@ -66,7 +66,7 @@ libfdt_module = Extension(
     include_dirs=[os.path.join(srcdir, 'libfdt')],
     libraries=['fdt'],
     library_dirs=[os.path.join(get_top_builddir(srcdir), 'libfdt')],
-    swig_opts=['-I' + os.path.join(srcdir, 'libfdt')],
+    swig_opts=['-I' + os.path.join(srcdir, 'libfdt'), '-outdir', os.path.join(get_top_builddir(srcdir), 'pylibfdt')],
 )
 
 
