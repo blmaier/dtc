@@ -122,7 +122,6 @@ if not py.found()
 else
   env += [
     'PYTHON=' + py.full_path(),
-    'PYTHONPATH=' + meson.project_source_root() / 'pylibfdt',
     'NO_PYTHON=0',
   ]
 endif
