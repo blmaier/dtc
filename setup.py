@@ -61,7 +61,7 @@ version, long_description = scan_for_info(srcdir)
 
 libfdt_module = Extension(
     '_libfdt',
-    sources=[os.path.join(srcdir, 'pylibfdt/libfdt.i')],
+    sources=[os.path.join(top_builddir, 'pylibfdt/libfdt.i')],
     define_macros=[('PY_SSIZE_T_CLEAN', None)],
     include_dirs=[os.path.join(srcdir, 'libfdt')],
     libraries=['fdt'],
