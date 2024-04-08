@@ -1,0 +1,40 @@
+[build-system]
+build-backend = "mesonpy"
+requires = [
+    'meson-python>=0.16',
+    'wheel',
+    'setuptools',
+    'packaging',
+    'ninja',
+    'Cython',
+    'swig'
+]
+
+[project]
+name = "libfdt"
+dynamic = ["version"]
+description = "Python binding for libfdt"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers=[
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: BSD License",
+  "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
+  "Operating System :: OS Independent",
+]
+
+[[project.authors]]
+name = "Simon Glass"
+email = "sjg@chromium.org"
+
+[[project.maintainers]]
+name = "David Gibson"
+email = "david@gibson.dropbear.id.au"
+
+[project.urls]
+documentation = "https://git.kernel.org/pub/scm/utils/dtc/dtc.git/tree/Documentation/manual.txt"
+source = "https://git.kernel.org/pub/scm/utils/dtc/dtc.git"
+download = "https://www.kernel.org/pub/software/utils/dtc"
+
+[tool.meson-python.args]
+setup = ['-Dpython=enabled']
