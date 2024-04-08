@@ -47,11 +47,6 @@ if not valgrind.found()
   add_project_arguments('-DNO_VALGRIND', language: 'c')
 endif
 
-py = import('python')
-py = py.find_installation(required: get_option('python'))
-swig = find_program('swig', required: get_option('python'))
-pylibfdt_enabled = not meson.is_cross_build() and py.found() and swig.found() ? true : false
-
 version_gen_h = vcs_tag(
   command: ['git', 'describe', '--dirty=+'],
   input: 'version_gen.h.in',
@@ -127,9 +122,7 @@ if get_option('tools')
   )
 endif
 
-if pylibfdt_enabled
-  subdir('pylibfdt')
-endif
+subdir('pylibfdt')
 
 if get_option('tests')
   subdir('tests')
