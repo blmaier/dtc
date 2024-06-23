@@ -73,6 +73,16 @@ if [ -e "$PYLIBFDT_BUILD" ]; then
     fi
 fi
 
+# Find the python module that distutils builds under a machine-specific path
+PYLIBFDT_BUILD=$(echo ../build/lib.*)
+if [ -e "$PYLIBFDT_BUILD" ]; then
+    if [ -n "$PYTHONPATH" ]; then
+        export PYTHONPATH="$PYTHONPATH:$PYLIBFDT_BUILD"
+    else
+        export PYTHONPATH="$PYLIBFDT_BUILD"
+    fi
+fi
+
 export QUIET_TEST=1
 STOP_ON_FAIL=0
 
