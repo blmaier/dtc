@@ -105,7 +105,6 @@ jobs:
           ninja:p
           libyaml:p
           swig:p
-          python-setuptools-scm:p
 
     - name: '🚧 Build'
       run: |
