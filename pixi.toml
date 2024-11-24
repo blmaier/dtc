@@ -1,0 +1,29 @@
+[system-requirements]
+linux = "4.4.0"
+libc = { family="glibc", version="2.19" }
+
+[project]
+authors = ["Brandon Maier <brandon.maier@gmail.com>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "dtc"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+clean = "rm -rf build pylibfdt/libfdt.egg-info pylibfdt/libfdt.py pylibfdt/libfdt_wrap.c pylibfdt/__pycache__/"
+setup = "meson setup build"
+compile = { cmd = "meson compile -C build", depends-on = ["setup"] }
+test = { cmd = "meson test -C build", depends-on = ["compile"] }
+
+[dependencies]
+swig = ">=4.3.0,<5"
+meson = ">=1.6.0,<2"
+yaml = ">=0.2.5,<0.3"
+pkg-config = ">=0.29.2,<0.30"
+python = ">=3.13.0,<3.14"
+bison = ">=3.8.2,<4"
+flex = ">=2.6.4,<3"
+setuptools = ">=69.0.3,<70"
+python_abi = ">=3.7,<4"
+pip = ">=24.0,<25"
